@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Client {
+public class Clients {
 
 
     @Id
@@ -19,28 +19,18 @@ public class Client {
     private String email;
 
 
-
-
-
     @OneToMany(mappedBy="client", fetch=FetchType.EAGER)
-    Set<Account> accounts = new HashSet<>();
-    private Account account;
+    Set<Accounts> accounts = new HashSet<>();
+    private Accounts account;
 
-    public Client() {
-    }
-
-
-
-
-
-
-    public Client(long id, String firstName, String lastName, String email) {
-        this.id = id;
+    public Clients(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
+    public Clients() {
+    }
     public long getId() {
         return id;
     }
@@ -71,5 +61,16 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Accounts getAccount() {
+        return account;
+    }
+    public void setAccount(Accounts account) {
+        this.account = account;
+    }
+    public void addAccount(Accounts accounts) {
+        accounts.setOwner(this);
+        accounts.add(accounts);
     }
 }

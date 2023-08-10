@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Account {
+public class Accounts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -16,19 +16,17 @@ public class Account {
     private double balance;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="client_id")
-    private Client client;
+    @JoinColumn(name="client")
+    private Clients client;
 
-    public Account(Client client) {
-        this.client = client;
+    public Accounts() {
+
     }
 
-    public Account(long id, String number, LocalDate creationDate, double balance, Client client) {
-        this.id = id;
+    public Accounts(String number, LocalDate creationDate, double balance) {
         this.number = number;
         this.creationDate = creationDate;
         this.balance = balance;
-        this.client = client;
     }
 
     public long getId() {
@@ -63,18 +61,18 @@ public class Account {
         this.balance = balance;
     }
 
-    public Client getClient() {
+    public Clients getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClient(Clients clients) {
+        this.client = clients;
     }
 
-    public void setOwner(Client client) {
-        this.client = client;
+    public void setOwner(Clients clients) {
+        this.client = clients;
     }
 
-    public void add(Account account) {
+    public void add(Accounts accounts) {
     }
 }
