@@ -1,5 +1,5 @@
 package com.mindhub.homebanking.models;
 
-public enum CardTypes {
+public enum CardType {
     DEBIT, CREDIT
 }

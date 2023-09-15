@@ -12,8 +12,8 @@ public class Card {
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
     private String cardholder;
-    private CardColors color;
-    private CardTypes type;
+    private CardColor color;
+    private CardType type;
     private String number;
     private int cvv;
     private LocalDate fromDate;
@@ -27,7 +27,7 @@ public class Card {
 
     }
 
-    public Card(String cardholder,CardTypes type, CardColors color, String number, int cvv, LocalDate fromDate, LocalDate thruDate){
+    public Card(String cardholder, CardType type, CardColor color, String number, int cvv, LocalDate fromDate, LocalDate thruDate){
         this.cardholder = cardholder;
         this.type = type;
         this.color = color;
@@ -52,16 +52,16 @@ public class Card {
     public void setCardholder(String cardholder) {
         this.cardholder = cardholder;
     }
-    public CardColors getColor() {
+    public CardColor getColor() {
         return color;
     }
-    public void setColor(CardColors color) {
+    public void setColor(CardColor color) {
         this.color = color;
     }
-    public CardTypes getType() {
+    public CardType getType() {
         return type;
     }
-    public void setType(CardTypes type) {
+    public void setType(CardType type) {
         this.type = type;
     }
     public String getNumber() {
@@ -88,4 +88,5 @@ public class Card {
     public void setThruDate(LocalDate thruDate) {
         this.thruDate = thruDate;
     }
-}
+
+  }
